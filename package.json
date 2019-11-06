@@ -14,6 +14,13 @@
     "mobtech",
     "cli"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAKER-A/mobTechCli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FAKER-A/mobTechCli/issues"
+  },
   "author": "FAKER-A",
   "license": "ISC",
   "dependencies": {
