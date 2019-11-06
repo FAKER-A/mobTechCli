@@ -1,6 +1,6 @@
 # mobtechcli ![npm](https://img.shields.io/npm/v/mobtechcli.svg) ![NPM](https://img.shields.io/npm/l/mobtechcli.svg) ![npm](https://img.shields.io/npm/dm/mobtechcli.svg)
 
-公司前端组内，项目模板生成脚手架。（默认 vue）
+公司前端组内，项目模板生成脚手架。（默认 vue, 后续支持 react,typescript）
 
 ## 安装
 
