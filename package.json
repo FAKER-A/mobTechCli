@@ -1,6 +1,6 @@
 {
   "name": "mobtechcli",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "mobtech cli",
   "main": "index.js",
   "bin": {
