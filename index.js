@@ -10,10 +10,11 @@ const packageData = require("./package.json");
 const inquirer = require("inquirer");
 
 const gitRepo = {
-  mob_base_vue: "direct:git@gitlab.code.mob.com:web-developer/mob-base-vue.git",
-  mob_base_vue_default: "direct:git@github.com:weijiaa/mobtech-vde.git",
+  mob_base_vue:
+    "direct:http://gitlab.code.mob.com/web-developer/mob-base-vue.git",
+  mob_base_vue_default: "direct:https://github.com/weijiaa/mobtech-vde.git",
   mob_base_react_antd:
-    "direct:git@gitlab.code.mob.com:web-developer/mob_base_react.git"
+    "direct:http://gitlab.code.mob.com/web-developer/mob_base_react"
 };
 
 program
