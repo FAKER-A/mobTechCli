@@ -26,6 +26,7 @@
   "dependencies": {
     "commander": "^4.0.0",
     "download-git-repo": "^3.0.2",
+    "inquirer": "^7.0.0",
     "ora": "^4.0.2"
   }
 }

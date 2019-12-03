@@ -11,9 +11,9 @@
 ## 使用
 
 ```javascript
-  mobtech -i <projectName>
-  or
-  mb -i <projectName>
+mobtech - i;
+or;
+mb - i;
 ```
 
 ## 项目目录

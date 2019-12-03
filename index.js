@@ -7,34 +7,60 @@ const chalk = require("chalk");
 const path = require("path");
 const fs = require("fs");
 const packageData = require("./package.json");
+const inquirer = require("inquirer");
 
 const gitRepo = {
-  base: "direct:git@gitlab.code.mob.com:web-developer/mob-base-vue.git"
+  mob_base_vue: "direct:git@gitlab.code.mob.com:web-developer/mob-base-vue.git",
+  mob_base_react:
+    "direct:git@gitlab.code.mob.com:web-developer/mob_base_react.git",
+  mob_base_react_antd:
+    "direct:git@gitlab.code.mob.com:web-developer/mob_base_react.git"
 };
 
 program
   .version(packageData.version)
-  .option("-i, init <projectName>", "input project name");
+  .option("-i, --init", "初始化项目")
+  .option("-V, --version", "查看版本信息")
+  .option("-h, --help", "查看帮助信息");
 program.parse(process.argv);
 
 if (program.init) {
-  initTemplateDefault();
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "projectName",
+        message: "请输入项目名称"
+      },
+      {
+        type: "list",
+        name: "template",
+        message: "选择其中一个作为项目模板",
+        choices: ["mob_base_vue", "mob_base_react_antd", "mob_base_react"]
+      }
+    ])
+    .then(answers => {
+      console.log(JSON.stringify(answers, null, "  "));
+      let url = gitRepo[answers.template];
+      let name = answers.projectName;
+      initTemplateDefault(name, url);
+    });
 }
 
-async function initTemplateDefault() {
-  const projectName = program.init;
+async function initTemplateDefault(name, gitUrl) {
+  const projectName = name;
   console.log(
-    chalk.bold.cyan("mobTechCli: ") + "will creating a new vue starter"
+    chalk.bold.cyan("mobTechCli: ") + "will creating a new project starter"
   );
   const spinner = ora("download template......").start();
   try {
     await checkName(projectName);
-    await downloadTemplate(gitRepo.base, projectName);
+    await downloadTemplate(gitUrl, projectName);
     await changeTemplate(projectName);
     spinner.clear();
     console.log(chalk.green("template download completed"));
     console.log(
-      chalk.bold.cyan("mobTechCli: ") + "a new vue starter is created"
+      chalk.bold.cyan("mobTechCli: ") + "a new project starter is created"
     );
     console.log(
       chalk.green(
