@@ -40,7 +40,6 @@ if (program.init) {
       }
     ])
     .then(answers => {
-      console.log(JSON.stringify(answers, null, "  "));
       let url = gitRepo[answers.template];
       let name = answers.projectName;
       initTemplateDefault(name, url);
