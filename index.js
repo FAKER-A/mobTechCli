@@ -15,7 +15,9 @@ const gitRepo = {
   mob_base_vde: "direct:https://github.com/weijiaa/mobtech-vde.git",
   mob_base_react_antd:
     "direct:http://gitlab.code.mob.com/web-developer/mob_base_react",
-  mob_base_rde: "direct:https://github.com/weijiaa/mobtech-rde.git"
+  mob_base_rde: "direct:https://github.com/weijiaa/mobtech-rde.git",
+  webpack_starter_vue_lib:
+    "direct:https://github.com/FAKER-A/webpack-starter-vue-lib.git"
 };
 
 program
@@ -38,15 +40,16 @@ if (program.init) {
         name: "template",
         message: "选择其中一个作为项目模板",
         choices: [
-          "mob_base_vue",
-          "mob_base_vue_default",
-          "mob_base_react_antd",
-          "mob_base_rde"
+          "mob_base_vue (vue 项目模板)",
+          "mob_base_vde (vue 项目模板纯净版)",
+          "mob_base_rde (react 项目模板纯净版)",
+          "mob_base_react_antd (react 项目模板)",
+          "webpack_starter_vue_lib (vue 开源组件开发模板[beta])"
         ]
       }
     ])
     .then(answers => {
-      let url = gitRepo[answers.template];
+      let url = gitRepo[answers.template.split(" ")[0]];
       let name = answers.projectName;
       initTemplateDefault(name, url);
     });

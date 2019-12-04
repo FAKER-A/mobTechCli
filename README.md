@@ -53,6 +53,6 @@ Vue
 ## 功能列表
 
 - [x] vue
+- [x] react
 - [ ] vue + ts
-- [ ] react
 - [ ] react + ts
