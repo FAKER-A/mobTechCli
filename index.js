@@ -12,9 +12,10 @@ const inquirer = require("inquirer");
 const gitRepo = {
   mob_base_vue:
     "direct:http://gitlab.code.mob.com/web-developer/mob-base-vue.git",
-  mob_base_vue_default: "direct:https://github.com/weijiaa/mobtech-vde.git",
+  mob_base_vde: "direct:https://github.com/weijiaa/mobtech-vde.git",
   mob_base_react_antd:
-    "direct:http://gitlab.code.mob.com/web-developer/mob_base_react"
+    "direct:http://gitlab.code.mob.com/web-developer/mob_base_react",
+  mob_base_rde: "direct:https://github.com/weijiaa/mobtech-rde.git"
 };
 
 program
@@ -36,7 +37,12 @@ if (program.init) {
         type: "list",
         name: "template",
         message: "选择其中一个作为项目模板",
-        choices: ["mob_base_vue", "mob_base_vue_default", "mob_base_react_antd"]
+        choices: [
+          "mob_base_vue",
+          "mob_base_vue_default",
+          "mob_base_react_antd",
+          "mob_base_rde"
+        ]
       }
     ])
     .then(answers => {
